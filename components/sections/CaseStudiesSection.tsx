@@ -2,7 +2,46 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Zap, Award, Activity, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { TrendingUp, Zap, Award, Activity, Sparkles, CheckCircle2, Layers, Cpu, Smartphone, Code } from "lucide-react";
+
+const PDF_FEATURES = [
+  {
+    tag: "MULTIPLE",
+    title: "Digital Projects",
+    description: "Websites, UI/UX & Software Solutions",
+    icon: Layers,
+    color: "text-amber-400",
+    border: "border-amber-500/30",
+    badgeBg: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+  },
+  {
+    tag: "CUSTOM",
+    title: "Business Solutions",
+    description: "Built Around Real Client Requirements",
+    icon: Cpu,
+    color: "text-cyan-400",
+    border: "border-cyan-500/30",
+    badgeBg: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
+  },
+  {
+    tag: "MODERN",
+    title: "Technology Stack",
+    description: "React • Next.js • WordPress • Supabase",
+    icon: Code,
+    color: "text-purple-400",
+    border: "border-purple-500/30",
+    badgeBg: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+  },
+  {
+    tag: "RESPONSIVE",
+    title: "Cross-Device Experience",
+    description: "Designed for Mobile & Desktop",
+    icon: Smartphone,
+    color: "text-emerald-400",
+    border: "border-emerald-500/30",
+    badgeBg: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+  },
+];
 
 const METRICS = [
   { label: "Speed Improvement", value: "+340%", subtext: "Lighthouse Performance 99+", icon: Zap, color: "text-cyan-400", border: "border-cyan-500/30" },
@@ -20,23 +59,58 @@ export default function CaseStudiesSection() {
 
         <div className="relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+        {/* Section Header (PDF Page 1 Specification) */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-semibold uppercase">
             <Sparkles className="w-3.5 h-3.5" />
-            DATA-DRIVEN IMPACT
+            PROVEN IMPACT
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            Proven <span className="text-gradient-cyan-purple">Results &amp; Metrics</span>
+            PROVEN <span className="text-gradient-cyan-purple">WORK</span>
           </h2>
 
-          <p className="text-lg text-slate-300 font-normal">
-            We measure success in tangible business outcomes: faster load times, higher conversions, and bulletproof reliability.
+          <p className="text-xl sm:text-2xl text-cyan-300 font-semibold font-heading">
+            Projects Built for Real Businesses
           </p>
         </div>
 
-        {/* 4 Metrics Cards */}
+        {/* 4 Feature Highlights Cards (From PDF Page 1) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {PDF_FEATURES.map((feat, idx) => {
+            const Icon = feat.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`rounded-3xl glass-card p-6 border ${feat.border} flex flex-col justify-between space-y-4 hover:border-cyan-400/50 transition-colors`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Icon className={`w-5 h-5 ${feat.color}`} />
+                  </div>
+                  <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded border ${feat.badgeBg}`}>
+                    ✦ {feat.tag}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold font-heading text-white">
+                    {feat.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 font-subheading mt-1 leading-relaxed">
+                    {feat.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* 4 Verified Metrics Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {METRICS.map((metric, idx) => {
             const Icon = metric.icon;

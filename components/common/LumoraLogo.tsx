@@ -5,15 +5,23 @@ import React from "react";
 interface LumoraLogoProps {
   variant?: "navbar" | "full" | "footer" | "icon";
   size?: "sm" | "md" | "lg";
+  theme?: "dark" | "light";
   className?: string;
 }
 
 export default function LumoraLogo({
   variant = "navbar",
   size = "md",
+  theme,
   className = "",
 }: LumoraLogoProps) {
   const sunSize = size === "sm" ? 18 : size === "lg" ? 32 : 24;
+
+  // Determine light or dark text theme (Footer is light bg #F6F6F3)
+  const isLight = theme === "light" || (theme === undefined && variant === "footer");
+  const textColor = isLight ? "text-[#1F2937]" : "text-white";
+  const subtextColor = isLight ? "text-[#475569] font-bold" : "text-slate-400 font-semibold";
+  const descColor = isLight ? "text-[#64748B] font-medium" : "text-slate-500";
 
   const SunIcon = () => (
     <svg
@@ -66,32 +74,32 @@ export default function LumoraLogo({
   }
 
   return (
-    <div className={`inline-flex flex-col items-start select-none ${className}`}>
+    <div className={`inline-flex flex-col items-center justify-center text-center select-none ${className}`}>
       {/* Main Wordmark: Lum + SunIcon + ra */}
-      <div className="flex items-center gap-0.5 sm:gap-1 font-heading font-bold text-white tracking-tight leading-none">
-        <span className="text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-none">Lum</span>
+      <div className={`flex items-center justify-center gap-0.5 sm:gap-1 font-heading font-bold ${textColor} tracking-tight leading-none w-full`}>
+        <span className={`text-lg sm:text-xl md:text-2xl font-extrabold ${textColor} leading-none`}>Lum</span>
         <SunIcon />
-        <span className="text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-none">ra</span>
+        <span className={`text-lg sm:text-xl md:text-2xl font-extrabold ${textColor} leading-none`}>ra</span>
       </div>
 
       {/* Subtext for Full / Footer Variant */}
       {(variant === "full" || variant === "footer") && (
-        <div className="w-full space-y-0.5 pt-0.5">
-          <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="w-full space-y-0.5 pt-0.5 text-center">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 w-full">
             <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#FDBA22] to-transparent opacity-60" />
-            <span className="text-[10px] sm:text-xs font-mono italic text-slate-400 font-semibold tracking-wider">
+            <span className={`text-[10px] sm:text-xs font-mono italic ${subtextColor} tracking-wider shrink-0`}>
               Technologies
             </span>
             <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#FDBA22] to-transparent opacity-60" />
           </div>
-          <p className="text-[8px] sm:text-[9px] font-sans text-slate-500 tracking-wider text-center">
+          <p className={`text-[8px] sm:text-[9px] font-sans ${descColor} tracking-wider text-center`}>
             Web • Software • Digital Solutions
           </p>
         </div>
       )}
 
       {variant === "navbar" && (
-        <span className="text-[9px] sm:text-[10px] font-mono italic text-[#FB923C] font-bold tracking-widest leading-none mt-0.5 pl-0.5">
+        <span className="text-[9px] sm:text-[10px] font-mono italic text-[#FB923C] font-bold tracking-widest leading-none mt-0.5 text-center w-full">
           Technologies
         </span>
       )}

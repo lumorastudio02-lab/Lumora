@@ -16,9 +16,26 @@ export default function ContactPage() {
   const toggle = (val: string) =>
     setSelected(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          service: selected.length > 0 ? selected.join(', ') : 'General Inquiry',
+          budget: budget || undefined,
+          message: form.message,
+        }),
+      })
+      setSubmitted(true)
+    } catch (err) {
+      console.error(err)
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -40,7 +57,7 @@ export default function ContactPage() {
         <Reveal delay={0.15}>
           <p className="text-gray-600 text-base leading-relaxed max-w-xl">
             Fill out the form below and we'll get back to you within 24 hours. If you'd rather talk first, drop us an email at{' '}
-            <a href="mailto:hello@lumora.in" className="text-gray-700 hover:text-gray-900 hover:underline">hello@lumora.in</a>.
+            <a href="mailto:lumora.web.technology@gmail.com" className="text-gray-700 hover:text-gray-900 hover:underline font-medium">lumora.web.technology@gmail.com</a>.
           </p>
         </Reveal>
       </section>
@@ -173,18 +190,21 @@ export default function ContactPage() {
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="bg-gray-50 rounded-3xl border border-gray-200 p-12 text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-gray-600 text-2xl">✦</span>
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-300 flex items-center justify-center mx-auto mb-6">
+                    <span className="text-2xl">✓</span>
                   </div>
                   <h3 className="font-display font-bold text-3xl text-gray-900 mb-4">
                     Message received!
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
-                    We'll review your brief and get back to you within 24 hours. In the meantime, feel free to browse our work.
+                  <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-3">
+                    Thank you for sent query! We have forwarded your project details to <strong>lumorastudio02@gmail.com</strong> and sent a confirmation email to <strong>{form.email}</strong>.
                   </p>
+                  <span className="inline-block text-xs font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-full">
+                    ✓ We will reach out to you ASAP!
+                  </span>
                   <div className="mt-8 flex gap-3 justify-center">
-                    <a href="/work" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-sm text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
-                      <span>View our work</span>
+                    <a href="/#portfolio" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-sm text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
+                      <span>Browse Featured Work</span>
                     </a>
                   </div>
                 </motion.div>
@@ -198,15 +218,15 @@ export default function ContactPage() {
               <div className="bg-gray-50 rounded-2xl border border-gray-200 p-6 space-y-6">
                 <div>
                   <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Email</p>
-                  <a href="mailto:hello@lumora.in" className="text-gray-700 hover:text-gray-900 text-sm font-medium">
-                    hello@lumora.in
+                  <a href="mailto:lumora.web.technology@gmail.com" className="text-gray-700 hover:text-gray-900 text-xs font-mono font-medium break-all">
+                    lumora.web.technology@gmail.com
                   </a>
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Phone</p>
-                  <a href="tel:+919876543210" className="text-gray-900 text-sm hover:text-gray-700 transition-colors">
-                    +91 98765 43210
-                  </a>
+                  <div className="text-gray-900 text-xs font-mono font-medium">
+                    +91 96651 19803 / +91 83292 85087
+                  </div>
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Location</p>

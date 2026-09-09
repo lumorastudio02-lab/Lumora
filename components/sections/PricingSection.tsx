@@ -1,63 +1,84 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, ArrowRight, ShieldCheck, Zap } from "lucide-react";
+import { Check, Sparkles, ArrowRight, Globe } from "lucide-react";
 import Link from "next/link";
 
-const PLANS = [
+interface PlanItem {
+  name: string;
+  priceINR: string;
+  priceAUD: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted: boolean;
+  cta: string;
+}
+
+const PLANS: PlanItem[] = [
   {
     name: "Starter",
-    price: "$2,499",
-    period: "per project",
-    description: "Ideal for early-stage startups and small businesses needing a high-converting web platform.",
+    priceINR: "₹9,999",
+    priceAUD: "A$250+",
+    period: "starting price",
+    description: "Ideal for small businesses and startups that need a professional online presence.",
     features: [
-      "Custom Next.js & React Web App",
-      "Figma UI/UX Design System",
-      "SEO Optimization & Analytics",
-      "Responsive Mobile Layouts",
+      "Custom Responsive Website",
+      "Up to 5 Pages",
+      "Modern UI/UX Design",
+      "Mobile Responsive Design",
+      "Basic SEO Setup",
+      "Contact / WhatsApp Integration",
       "2 Rounds of Revisions",
-      "2 Weeks Delivery",
     ],
     highlighted: false,
-    cta: "Start Starter Project",
+    cta: "Select Starter Plan",
   },
   {
     name: "Business Pro",
-    price: "$5,999",
-    period: "per project",
-    description: "Full-scale custom software, AI automation pipelines, mobile app, and dedicated engineering team.",
+    priceINR: "₹24,999",
+    priceAUD: "A$750+",
+    period: "starting price",
+    description: "Perfect for growing businesses that need a powerful website or custom digital solution.",
     features: [
-      "Full-Stack Web & Software System",
-      "AI Pipeline Integration (OpenAI/Claude/Gemini)",
-      "iOS & Android Mobile Application",
-      "Apple Standard Micro-Interactions",
-      "Cloud Serverless Architecture (AWS/Vercel)",
-      "Dedicated Project Manager & 24/7 Support",
-      "Unlimited Design Revisions",
+      "Custom Website Design & Development",
+      "Up to 10 Pages",
+      "Advanced UI/UX Design",
+      "CMS / Admin Panel",
+      "SEO Optimization",
+      "Forms & Lead Management",
+      "Database Integration",
+      "Performance Optimization",
+      "Deployment & Support",
     ],
     highlighted: true,
-    cta: "Launch Business Pro",
+    cta: "Select Business Pro",
   },
   {
-    name: "Enterprise",
-    price: "$12,499+",
+    name: "Custom Solutions",
+    priceINR: "₹49,999+",
+    priceAUD: "A$2,000",
     period: "custom scope",
-    description: "Dedicated full-stack engineering team, custom LLM models, and SLA enterprise support.",
+    description: "For businesses that need custom software, web applications, billing systems, or mobile apps.",
     features: [
-      "Custom Enterprise AI Models & Fine-Tuning",
-      "Microservices & Serverless Architecture",
-      "SOC2 & Security Compliance Audit",
-      "99.99% Guaranteed SLA Uptime",
-      "Dedicated Senior Engineering Team",
-      "White-Glove Onboarding & Training",
+      "Custom Software Development",
+      "Database & Backend Development",
+      "Admin Dashboard",
+      "User Authentication",
+      "Custom Business Features",
+      "API Integrations",
+      "Cloud Deployment",
+      "Ongoing Support Available",
     ],
     highlighted: false,
-    cta: "Contact Enterprise Sales",
+    cta: "Get Custom Quote",
   },
 ];
 
 export default function PricingSection() {
+  const [currency, setCurrency] = useState<"INR" | "AUD">("INR");
+
   return (
     <section id="pricing" className="relative my-8 sm:my-12 lg:my-16 px-4 sm:px-6 lg:px-8 z-20">
       <div className="max-w-7xl mx-auto bg-[#050816] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-20 px-6 sm:px-12 border border-cyan-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden relative">
@@ -67,23 +88,51 @@ export default function PricingSection() {
         <div className="relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
+        <div className="text-center max-w-3xl mx-auto space-y-5 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/30 text-[#F59E0B] text-xs font-mono font-bold uppercase">
             <Sparkles className="w-3.5 h-3.5" />
-            TRANSPARENT PRICING
+            RECOMMENDED PRICING
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            Flexible <span className="bg-gradient-to-r from-[#F59E0B] via-cyan-400 to-purple-500 bg-clip-text text-transparent">Plans &amp; Pricing</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
+            Recommended Pricing <span className="bg-gradient-to-r from-[#F59E0B] via-cyan-400 to-purple-500 bg-clip-text text-transparent">For Your Website</span>
           </h2>
 
-          <p className="text-lg text-slate-300 font-subheading font-normal">
-            Choose the right tier to transform your wireframe blueprint into production reality.
+          <p className="text-base sm:text-lg text-slate-300 font-subheading font-normal">
+            Transparent, fixed-tier packages tailored for businesses of all scales.
           </p>
+
+          {/* Interactive Currency Switcher */}
+          <div className="pt-4 flex justify-center">
+            <div className="inline-flex items-center p-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-inner gap-1">
+              <button
+                type="button"
+                onClick={() => setCurrency("INR")}
+                className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
+                  currency === "INR"
+                    ? "bg-gradient-to-r from-[#F59E0B] to-amber-500 text-slate-950 shadow-md scale-105"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <span>🇮🇳 INR (₹)</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrency("AUD")}
+                className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
+                  currency === "AUD"
+                    ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 shadow-md scale-105"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <span>🇦🇺 AUD (A$)</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-20">
           {PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -99,21 +148,21 @@ export default function PricingSection() {
             >
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#F59E0B] via-amber-400 to-orange-500 text-slate-900 font-heading font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.6)]">
-                  MOST POPULAR // FEATURED
+                  MOST POPULAR
                 </div>
               )}
 
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold font-heading text-white">{plan.name}</h3>
-                  <p className="text-xs text-slate-400 font-subheading mt-1">{plan.description}</p>
+                  <p className="text-xs text-slate-400 font-subheading mt-2 leading-relaxed">{plan.description}</p>
                 </div>
 
-                <div className="flex items-baseline gap-1">
+                <div className="flex items-baseline gap-2">
                   <span className={`text-4xl sm:text-5xl font-extrabold font-mono tracking-tight ${
                     plan.highlighted ? "text-[#F59E0B]" : "text-gradient-cyan-purple"
                   }`}>
-                    {plan.price}
+                    {currency === "INR" ? plan.priceINR : plan.priceAUD}
                   </span>
                   <span className="text-xs font-mono text-slate-400">{plan.period}</span>
                 </div>
@@ -150,6 +199,67 @@ export default function PricingSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Lumora Technologies — AUD Pricing Table Breakdown (PDF Page 3) */}
+        <div className="rounded-3xl glass-panel border border-cyan-500/30 p-8 sm:p-10 relative overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <Globe className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold font-heading text-white">
+                  Lumora Technologies — AUD Pricing
+                </h3>
+                <p className="text-xs text-slate-400 font-mono">
+                  Dedicated Australian Dollar (AUD) rates for international clients
+                </p>
+              </div>
+            </div>
+            <span className="text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+              🇦🇺 AUD Official Table
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left font-subheading border-collapse">
+              <thead>
+                <tr className="border-b border-slate-700/80 text-xs font-mono text-cyan-400 uppercase tracking-wider">
+                  <th className="py-4 px-6">Plan</th>
+                  <th className="py-4 px-6">Scope / Tier</th>
+                  <th className="py-4 px-6 text-right">Pricing (AUD)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-sm text-slate-200">
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-4 px-6 font-bold flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-sm bg-blue-500 inline-block" />
+                    Starter
+                  </td>
+                  <td className="py-4 px-6 text-xs text-slate-400">Up to 5 Pages • Responsive Website • Basic SEO</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-cyan-300">A$250+</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors bg-amber-500/5">
+                  <td className="py-4 px-6 font-bold flex items-center gap-2 text-[#F59E0B]">
+                    <span className="w-3 h-3 rounded-sm bg-[#F59E0B] inline-block" />
+                    Business Pro (MOST POPULAR)
+                  </td>
+                  <td className="py-4 px-6 text-xs text-slate-300">Up to 10 Pages • Custom Design • CMS • DB • Support</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-[#F59E0B]">A$750+</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="py-4 px-6 font-bold flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-sm bg-purple-500 inline-block" />
+                    Custom Solutions
+                  </td>
+                  <td className="py-4 px-6 text-xs text-slate-400">Custom Software • Backend • APIs • Cloud • Support</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-purple-300">A$2,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

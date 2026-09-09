@@ -2,10 +2,12 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Sparkles, CheckCircle2, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Sparkles, CheckCircle2, Clock, Loader2 } from "lucide-react";
 
 export default function ContactSection() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,9 +16,30 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit project scope.");
+      }
+
+      setFormSubmitted(true);
+    } catch (err: any) {
+      console.error("Contact Form Error:", err);
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -51,7 +74,9 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-[10px] font-mono text-[#64748B] uppercase font-bold">EMAIL US DIRECTLY</div>
-                  <div className="text-base font-bold font-heading text-[#1F2937]">hello@lumora.com</div>
+                  <a href="mailto:lumora.web.technology@gmail.com" className="text-sm sm:text-base font-bold font-heading text-[#1F2937] hover:text-[#F97316] transition-colors break-all">
+                    lumora.web.technology@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -61,7 +86,9 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-[10px] font-mono text-[#64748B] uppercase font-bold">CALL / WHATSAPP</div>
-                  <div className="text-base font-bold font-heading text-[#1F2937]">+91 91741 01846</div>
+                  <div className="text-sm sm:text-base font-bold font-heading text-[#1F2937]">
+                    +91 96651 19803 / +91 83292 85087
+                  </div>
                 </div>
               </div>
 
@@ -91,9 +118,12 @@ export default function ContactSection() {
                   <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-300 mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold font-heading text-[#1F2937]">Message Received!</h3>
-                  <p className="text-[#64748B] text-sm max-w-md mx-auto font-subheading">
-                    Thank you for reaching out to Lumora Technologies. Our engineering team is reviewing your project scope and will reply within 2 hours.
+                  <h3 className="text-2xl font-bold font-heading text-[#1F2937]">Message Sent Successfully!</h3>
+                  <p className="text-[#64748B] text-sm max-w-md mx-auto font-subheading leading-relaxed">
+                    Thank you for sent query! We have received your project details and forwarded a copy to <strong>lumorastudio02@gmail.com</strong>.
+                  </p>
+                  <p className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-4 py-2.5 rounded-xl font-mono inline-block">
+                    ✓ Confirmation email sent to: <strong>{formData.email}</strong>. We will reach out ASAP!
                   </p>
                 </div>
               ) : (
@@ -102,6 +132,12 @@ export default function ContactSection() {
                     <h3 className="text-2xl font-bold font-heading text-[#1F2937]">Launch Your Project</h3>
                     <p className="text-xs text-[#64748B] font-subheading">Fill out the form below to get a technical estimate &amp; blueprint consultation.</p>
                   </div>
+
+                  {errorMsg && (
+                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs font-mono text-red-600">
+                      ⚠️ {errorMsg}
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
@@ -172,10 +208,20 @@ export default function ContactSection() {
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl font-heading font-bold text-base text-slate-900 bg-gradient-to-r from-[#FDBA22] via-[#FB923C] to-[#EF4444] shadow-md hover:shadow-lg transition-all duration-300"
+                    disabled={loading}
+                    className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl font-heading font-bold text-base text-slate-900 bg-gradient-to-r from-[#FDBA22] via-[#FB923C] to-[#EF4444] shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70"
                   >
-                    <span>Submit Project Scope</span>
-                    <Send className="w-4 h-4" />
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Submitting Project Scope...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Project Scope</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
