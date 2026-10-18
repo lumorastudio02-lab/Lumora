@@ -108,65 +108,65 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full bg-[#F6F6F3] pt-20 pb-12 border-t border-[#E4E4E2] text-[#1F2937] z-20 overflow-hidden select-none">
+    <footer className="relative w-full bg-[#F4EFEA] pt-12 sm:pt-14 pb-8 sm:pb-10 border-t border-[#E8DFD3] text-[#1F1610] z-20 overflow-hidden select-none">
       
       {/* Decorative Radial Background Lights */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 bg-gradient-to-b from-[#FDBA22]/10 via-[#F97316]/5 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#845EF7]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#14D8FF]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 bg-gradient-to-b from-[#E8D4BE]/30 via-[#F3E5D4]/20 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#B45309]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#C97A32]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
         
         {/* Top Header Row: Brand Identity & Live Status Badge */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-14 border-b border-[#E4E4E2]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 sm:pb-10 border-b border-[#E8DFD3]">
           
           {/* Logo Showcase & Brand Description */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-3 max-w-xl">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2 max-w-xl">
             <Link href="#hero" className="inline-block group transform hover:scale-[1.02] transition-transform duration-300">
               <LumoraLogo variant="full" size="lg" theme="light" />
             </Link>
-            <p className="text-sm font-subheading text-[#64748B] leading-relaxed pt-1">
+            <p className="text-sm font-subheading text-[#6B594C] leading-relaxed pt-1">
               Transforming Ideas Into Digital Reality. We design websites, software, mobile apps, and digital experiences that scale.
             </p>
           </div>
 
           {/* Live Availability & Clock Pill */}
-          <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#E4E4E2] shadow-sm backdrop-blur-md text-xs font-mono">
+          <div className="flex flex-col items-center md:items-end gap-2.5 shrink-0">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E8DFD3] shadow-sm backdrop-blur-md text-xs font-mono">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="font-semibold text-slate-700">Accepting New Projects Q3/Q4</span>
+              <span className="font-semibold text-[#1F1610]">Accepting New Projects Q3/Q4</span>
             </div>
 
-            <div className="text-xs font-mono text-[#64748B] flex items-center gap-1.5 bg-white/50 px-3 py-1 rounded-lg border border-[#E4E4E2]/60">
-              <Globe className="w-3.5 h-3.5 text-[#F97316]" />
+            <div className="text-xs font-mono text-[#6B594C] flex items-center gap-1.5 bg-white/70 px-3 py-1 rounded-lg border border-[#E8DFD3]">
+              <Globe className="w-3.5 h-3.5 text-[#B46A28]" />
               <span>Pune, India (IST)</span>
-              {time && <span className="font-semibold text-slate-800 ml-1">[{time}]</span>}
+              {time && <span className="font-semibold text-[#1F1610] ml-1">[{time}]</span>}
             </div>
           </div>
         </div>
 
         {/* Middle Mega Grid: Newsletter & Dynamic Navigation Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-14 border-b border-[#E4E4E2]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 py-8 sm:py-10 border-b border-[#E8DFD3]">
           
           {/* Column 1: Newsletter Card & Social Media */}
           <div className="space-y-6">
-            <div className="space-y-3.5 p-6 rounded-3xl bg-white border border-[#E4E4E2] shadow-sm relative overflow-hidden group hover:border-[#F97316]/40 transition-all duration-300">
+            <div className="space-y-3.5 p-6 rounded-3xl bg-white border border-[#E8DFD3] shadow-sm relative overflow-hidden group hover:border-[#B46A28]/40 transition-all duration-300">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#F97316] flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> Newsletter
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#8C4E1D] flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#B46A28]" /> Newsletter
                 </span>
-                <span className="text-[10px] font-mono text-slate-400">Weekly Tech Digest</span>
+                <span className="text-[10px] font-mono text-[#8C4E1D]/70">Weekly Tech Digest</span>
               </div>
               
-              <p className="text-xs text-slate-600 font-subheading">
+              <p className="text-xs text-[#6B594C] font-subheading">
                 Get high-impact UI/UX insights and enterprise software tech stack updates.
               </p>
 
               {subscribed ? (
-                <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-700 font-mono flex items-center gap-2 animate-fadeIn">
+                <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-mono flex items-center gap-2 animate-fadeIn">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Subscribed! Check your inbox soon.</span>
                 </div>
@@ -179,12 +179,12 @@ export default function Footer() {
                       placeholder="Enter your email address..."
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/80 border border-slate-200 text-slate-800 placeholder-slate-400 text-xs focus:outline-none focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/10 transition-all"
+                      className="w-full px-4 py-2.5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFD3] text-[#1F1610] placeholder-[#A8988B] text-xs focus:outline-none focus:border-[#B46A28] focus:ring-2 focus:ring-[#B46A28]/10 transition-all"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-2.5 rounded-2xl bg-[#1F2937] hover:bg-[#F97316] text-white font-heading font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:shadow-[#F97316]/20 transition-all active:scale-[0.98]"
+                    className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white font-heading font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:brightness-105 transition-all active:scale-[0.98]"
                   >
                     <span>Subscribe Now</span>
                     <Send className="w-3.5 h-3.5" />
@@ -195,7 +195,7 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="space-y-2.5">
-              <h5 className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#64748B]">Follow Lumora</h5>
+              <h5 className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#8C4E1D]">Follow Lumora</h5>
               <div className="flex items-center gap-2">
                 {[
                   { icon: GithubIcon, href: "https://github.com", label: "GitHub" },
@@ -209,7 +209,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-9 h-9 rounded-xl bg-white border border-[#E4E4E2] text-slate-600 flex items-center justify-center hover:bg-[#F97316] hover:text-white hover:border-[#F97316] transition-all duration-200 shadow-sm"
+                    className="w-9 h-9 rounded-xl bg-white border border-[#E8DFD3] text-[#6B594C] flex items-center justify-center hover:bg-gradient-to-r hover:from-[#B45309] hover:to-[#C97A32] hover:text-white hover:border-transparent transition-all duration-200 shadow-sm"
                   >
                     <social.icon className="w-4 h-4" />
                   </a>
@@ -220,10 +220,10 @@ export default function Footer() {
 
           {/* Column 2: Navigation Links */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono font-bold text-[#1F2937] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" /> Navigation
+            <h4 className="text-xs font-mono font-bold text-[#1F1610] uppercase tracking-widest flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B46A28]" /> Navigation
             </h4>
-            <ul className="space-y-2.5 text-sm font-subheading text-[#64748B]">
+            <ul className="space-y-2.5 text-sm font-subheading text-[#6B594C]">
               {[
                 { name: "Home", href: "#hero" },
                 { name: "Services", href: "#services" },
@@ -234,7 +234,7 @@ export default function Footer() {
                 { name: "Pricing & Plans", href: "#pricing" },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="hover:text-[#F97316] hover:translate-x-1 inline-block transition-all duration-200">
+                  <Link href={item.href} className="hover:text-[#B46A28] hover:translate-x-1 inline-block transition-all duration-200">
                     {item.name}
                   </Link>
                 </li>
@@ -244,10 +244,10 @@ export default function Footer() {
 
           {/* Column 3: Services Offered */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono font-bold text-[#1F2937] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FDBA22]" /> Services
+            <h4 className="text-xs font-mono font-bold text-[#1F1610] uppercase tracking-widest flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C97A32]" /> Services
             </h4>
-            <ul className="space-y-2.5 text-sm font-subheading text-[#64748B]">
+            <ul className="space-y-2.5 text-sm font-subheading text-[#6B594C]">
               {[
                 "Website Development",
                 "Software Engineering",
@@ -257,7 +257,7 @@ export default function Footer() {
                 "Cloud & DevOps Architecture"
               ].map((service) => (
                 <li key={service}>
-                  <a href="#services" className="hover:text-[#F97316] hover:translate-x-1 inline-block transition-all duration-200">
+                  <a href="#services" className="hover:text-[#B46A28] hover:translate-x-1 inline-block transition-all duration-200">
                     {service}
                   </a>
                 </li>
@@ -267,21 +267,21 @@ export default function Footer() {
 
           {/* Column 4: Direct Connect & Contact */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono font-bold text-[#1F2937] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#14D8FF]" /> Direct Connect
+            <h4 className="text-xs font-mono font-bold text-[#1F1610] uppercase tracking-widest flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8C4A1D]" /> Direct Connect
             </h4>
             
-            <ul className="space-y-3 text-sm font-subheading text-[#64748B]">
+            <ul className="space-y-3 text-sm font-subheading text-[#6B594C]">
               
               {/* Email item with copy button */}
-              <li className="flex items-center justify-between p-2.5 rounded-2xl bg-white border border-[#E4E4E2] hover:border-[#F97316]/30 transition-all group">
+              <li className="flex items-center justify-between p-2.5 rounded-2xl bg-white border border-[#E8DFD3] hover:border-[#B46A28]/40 transition-all group">
                 <div className="flex items-center gap-2.5 overflow-hidden">
-                  <Mail className="w-4 h-4 text-[#F97316] shrink-0" />
-                  <span className="text-[11px] font-mono truncate text-slate-700">lumora.web.technology@gmail.com</span>
+                  <Mail className="w-4 h-4 text-[#B46A28] shrink-0" />
+                  <span className="text-[11px] font-mono truncate text-[#1F1610]">lumora.web.technologies@gmail.com</span>
                 </div>
                 <button
-                  onClick={() => copyToClipboard("lumora.web.technology@gmail.com", "Email")}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-[#F97316] hover:bg-slate-50 transition-colors shrink-0"
+                  onClick={() => copyToClipboard("lumora.web.technologies@gmail.com", "Email")}
+                  className="p-1.5 rounded-lg text-[#8C4E1D] hover:text-[#B46A28] hover:bg-[#F4ECE1] transition-colors shrink-0"
                   title="Copy Email"
                 >
                   {copiedText === "Email" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -289,14 +289,14 @@ export default function Footer() {
               </li>
 
               {/* Phone item with copy button */}
-              <li className="flex items-center justify-between p-2.5 rounded-2xl bg-white border border-[#E4E4E2] hover:border-[#F97316]/30 transition-all group">
+              <li className="flex items-center justify-between p-2.5 rounded-2xl bg-white border border-[#E8DFD3] hover:border-[#B46A28]/40 transition-all group">
                 <div className="flex items-center gap-2.5 overflow-hidden">
-                  <Phone className="w-4 h-4 text-[#F97316] shrink-0" />
-                  <span className="text-[11px] font-mono text-slate-700">+91 96651 19803 / +91 83292 85087</span>
+                  <Phone className="w-4 h-4 text-[#B46A28] shrink-0" />
+                  <span className="text-[11px] font-mono text-[#1F1610]">+91 96651 19803 / +91 83292 85087</span>
                 </div>
                 <button
                   onClick={() => copyToClipboard("+91 96651 19803 / +91 83292 85087", "Phone")}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-[#F97316] hover:bg-slate-50 transition-colors shrink-0"
+                  className="p-1.5 rounded-lg text-[#8C4E1D] hover:text-[#B46A28] hover:bg-[#F4ECE1] transition-colors shrink-0"
                   title="Copy Phone"
                 >
                   {copiedText === "Phone" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -304,9 +304,9 @@ export default function Footer() {
               </li>
 
               {/* Location item */}
-              <li className="flex items-start gap-2.5 p-2.5 rounded-2xl bg-white/60 border border-[#E4E4E2]">
-                <MapPin className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
-                <span className="text-xs text-slate-600">Pune, Maharashtra, India — 411001</span>
+              <li className="flex items-start gap-2.5 p-2.5 rounded-2xl bg-white border border-[#E8DFD3]">
+                <MapPin className="w-4 h-4 text-[#B46A28] shrink-0 mt-0.5" />
+                <span className="text-xs text-[#6B594C]">Pune, Maharashtra, India — 411001</span>
               </li>
 
             </ul>
@@ -315,21 +315,21 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#64748B]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#6B594C]">
           <p>© {new Date().getFullYear()} Lumora Technologies. All rights reserved.</p>
 
-          <div className="flex items-center gap-6 text-slate-500">
-            <a href="#" className="hover:text-[#F97316] transition-colors">Privacy Policy</a>
-            <span className="text-slate-300">•</span>
-            <a href="#" className="hover:text-[#F97316] transition-colors">Terms of Service</a>
-            <span className="text-slate-300">•</span>
-            <a href="#" className="hover:text-[#F97316] transition-colors">Sitemap</a>
+          <div className="flex items-center gap-6 text-[#6B594C]">
+            <a href="#" className="hover:text-[#B46A28] transition-colors">Privacy Policy</a>
+            <span className="text-[#DFCEBD]">•</span>
+            <a href="#" className="hover:text-[#B46A28] transition-colors">Terms of Service</a>
+            <span className="text-[#DFCEBD]">•</span>
+            <a href="#" className="hover:text-[#B46A28] transition-colors">Sitemap</a>
           </div>
 
           <button
             onClick={scrollToTop}
             aria-label="Back to Top"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-[#E4E4E2] text-slate-700 hover:text-[#F97316] hover:border-[#F97316]/50 shadow-sm transition-all duration-200 hover:shadow-md group active:scale-95"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-[#E8DFD3] text-[#1F1610] hover:text-[#B46A28] hover:border-[#B46A28]/50 shadow-sm transition-all duration-200 hover:shadow-md group active:scale-95"
           >
             <span className="text-[11px] font-mono font-semibold">Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5 transform group-hover:-translate-y-0.5 transition-transform" />

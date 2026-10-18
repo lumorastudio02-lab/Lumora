@@ -57,7 +57,7 @@ export default function ContactPage() {
         <Reveal delay={0.15}>
           <p className="text-gray-600 text-base leading-relaxed max-w-xl">
             Fill out the form below and we'll get back to you within 24 hours. If you'd rather talk first, drop us an email at{' '}
-            <a href="mailto:lumora.web.technology@gmail.com" className="text-gray-700 hover:text-gray-900 hover:underline font-medium">lumora.web.technology@gmail.com</a>.
+            <a href="mailto:lumora.web.technologies@gmail.com" className="text-gray-700 hover:text-gray-900 hover:underline font-medium">lumora.web.technologies@gmail.com</a>.
           </p>
         </Reveal>
       </section>
@@ -218,8 +218,8 @@ export default function ContactPage() {
               <div className="bg-gray-50 rounded-2xl border border-gray-200 p-6 space-y-6">
                 <div>
                   <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Email</p>
-                  <a href="mailto:lumora.web.technology@gmail.com" className="text-gray-700 hover:text-gray-900 text-xs font-mono font-medium break-all">
-                    lumora.web.technology@gmail.com
+                  <a href="mailto:lumora.web.technologies@gmail.com" className="text-gray-700 hover:text-gray-900 text-xs font-mono font-medium break-all">
+                    lumora.web.technologies@gmail.com
                   </a>
                 </div>
                 <div>

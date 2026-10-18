@@ -42,10 +42,10 @@ export default function CtaSection() {
                 </svg>
               </Link>
               <a
-                href="mailto:lumora.web.technology@gmail.com"
+                href="mailto:lumora.web.technologies@gmail.com"
                 className="pill-btn gap-2.5 px-8 py-4 rounded-full border border-foreground/20 text-sm font-medium text-foreground hover:border-accent transition-colors"
               >
-                <span>lumora.web.technology@gmail.com</span>
+                <span>lumora.web.technologies@gmail.com</span>
               </a>
             </div>
           </Reveal>

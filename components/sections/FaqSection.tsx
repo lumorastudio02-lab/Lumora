@@ -40,25 +40,25 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="relative my-8 sm:my-12 lg:my-16 px-4 sm:px-6 lg:px-8 z-20">
-      <div className="max-w-7xl mx-auto bg-[#050816] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-20 px-6 sm:px-12 border border-cyan-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden relative">
+    <section id="faq" className="relative my-3 sm:my-4 px-4 sm:px-6 lg:px-8 z-20">
+      <div className="max-w-7xl mx-auto bg-[#F4EFEA] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-10 sm:py-12 lg:py-14 px-6 sm:px-12 border border-[#E8DFD3] shadow-[0_20px_60px_rgba(60,40,20,0.06)] overflow-hidden relative">
         {/* Background Ambient Glow */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[#E8D4BE]/30 via-[#F3E5D4]/40 to-[#DFC7AF]/30 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-semibold uppercase">
-            <HelpCircle className="w-3.5 h-3.5" />
+        <div className="text-center space-y-3 mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4ECE1] border border-[#DFCEBD] text-[#8C4E1D] text-xs font-mono font-bold uppercase">
+            <HelpCircle className="w-3.5 h-3.5 text-[#B46A28]" />
             FREQUENTLY ASKED QUESTIONS
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
-            Got <span className="text-gradient-cyan-purple">Questions?</span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold font-heading text-[#1F1610] tracking-tight">
+            Got <span className="text-gradient-sun">Questions?</span>
           </h2>
 
-          <p className="text-lg text-slate-300 font-normal">
+          <p className="text-lg text-[#6B594C] font-normal">
             Everything you need to know about working with Lumora Technologies.
           </p>
         </div>
@@ -77,19 +77,19 @@ export default function FaqSection() {
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "glass-card border-cyan-400/50 shadow-[0_0_30px_rgba(34,211,238,0.15)] bg-white/5"
-                    : "glass-panel border-white/10 hover:border-white/20"
+                    ? "bg-white border-[#B46A28] shadow-[0_10px_30px_rgba(180,106,40,0.12)]"
+                    : "bg-white/80 hover:bg-white border-[#E8DFD3] shadow-sm"
                 }`}
               >
                 <button
                   onClick={() => toggleFaq(idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                 >
-                  <span className="text-lg font-bold font-heading text-white">
+                  <span className="text-lg font-bold font-heading text-[#1F1610]">
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-cyan-400 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 bg-cyan-500/20" : ""
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    isOpen ? "rotate-180 bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white shadow-sm" : "bg-[#F4ECE1] text-[#8C4E1D]"
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -104,7 +104,7 @@ export default function FaqSection() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 pt-0 text-sm text-slate-300 leading-relaxed border-t border-white/5">
+                      <div className="p-6 pt-0 text-sm text-[#6B594C] leading-relaxed border-t border-[#E8DFD3]/70">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import CustomCursor from '@/components/common/CustomCursor'
 import PageTransition from '@/components/animations/PageTransition'
 
 export const metadata: Metadata = {
@@ -42,7 +41,6 @@ export default function RootLayout({
         />
       </head>
       <body className="grain-overlay antialiased">
-        <CustomCursor />
         <PageTransition>
           {children}
         </PageTransition>

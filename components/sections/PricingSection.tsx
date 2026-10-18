@@ -80,38 +80,38 @@ export default function PricingSection() {
   const [currency, setCurrency] = useState<"INR" | "AUD">("INR");
 
   return (
-    <section id="pricing" className="relative my-8 sm:my-12 lg:my-16 px-4 sm:px-6 lg:px-8 z-20">
-      <div className="max-w-7xl mx-auto bg-[#050816] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-20 px-6 sm:px-12 border border-cyan-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden relative">
-        {/* Background Lumora Sun Orange Radial Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#F59E0B]/15 via-purple-500/15 to-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
+    <section id="pricing" className="relative my-3 sm:my-4 px-4 sm:px-6 lg:px-8 z-20">
+      <div className="max-w-7xl mx-auto bg-[#FAF8F5] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-10 sm:py-12 lg:py-14 px-6 sm:px-12 border border-[#E8DFD3] shadow-[0_20px_60px_rgba(60,40,20,0.06)] overflow-hidden relative">
+        {/* Background Warm Amber Radial Glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#E8D4BE]/25 via-[#F3E5D4]/35 to-[#DFC7AF]/25 rounded-full blur-[160px] pointer-events-none" />
 
         <div className="relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-5 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/30 text-[#F59E0B] text-xs font-mono font-bold uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4ECE1] border border-[#DFCEBD] text-[#8C4E1D] text-xs font-mono font-bold uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-[#B46A28]" />
             RECOMMENDED PRICING
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            Recommended Pricing <span className="bg-gradient-to-r from-[#F59E0B] via-cyan-400 to-purple-500 bg-clip-text text-transparent">For Your Website</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#1F1610] tracking-tight">
+            Recommended Pricing <span className="text-gradient-sun">For Your Website</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-300 font-subheading font-normal">
+          <p className="text-base sm:text-lg text-[#6B594C] font-subheading font-normal">
             Transparent, fixed-tier packages tailored for businesses of all scales.
           </p>
 
           {/* Interactive Currency Switcher */}
-          <div className="pt-4 flex justify-center">
-            <div className="inline-flex items-center p-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-inner gap-1">
+          <div className="pt-2 flex justify-center">
+            <div className="inline-flex items-center p-1.5 rounded-full bg-[#F4EFEA] border border-[#E8DFD3] shadow-inner gap-1">
               <button
                 type="button"
                 onClick={() => setCurrency("INR")}
                 className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
                   currency === "INR"
-                    ? "bg-gradient-to-r from-[#F59E0B] to-amber-500 text-slate-950 shadow-md scale-105"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white shadow-md scale-105"
+                    : "text-[#6B594C] hover:text-[#1F1610]"
                 }`}
               >
                 <span>🇮🇳 INR (₹)</span>
@@ -121,8 +121,8 @@ export default function PricingSection() {
                 onClick={() => setCurrency("AUD")}
                 className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
                   currency === "AUD"
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 shadow-md scale-105"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white shadow-md scale-105"
+                    : "text-[#6B594C] hover:text-[#1F1610]"
                 }`}
               >
                 <span>🇦🇺 AUD (A$)</span>
@@ -132,7 +132,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-10 sm:mb-12">
           {PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -142,38 +142,38 @@ export default function PricingSection() {
               transition={{ duration: 0.6, delay: idx * 0.15 }}
               className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
                 plan.highlighted
-                  ? "glass-card border-2 border-[#F59E0B] shadow-[0_0_50px_rgba(245,158,11,0.35)] lg:-translate-y-4 bg-gradient-to-b from-[#F59E0B]/10 via-white/5 to-white/5"
-                  : "glass-card border border-cyan-500/20"
+                  ? "bg-white border-2 border-[#B46A28] shadow-[0_15px_45px_rgba(180,106,40,0.16)] lg:-translate-y-4"
+                  : "bg-white border border-[#E8DFD3] shadow-[0_8px_25px_rgba(60,40,20,0.04)]"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#F59E0B] via-amber-400 to-orange-500 text-slate-900 font-heading font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.6)]">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#B45309] via-[#C97A32] to-[#8C4A1D] text-white font-heading font-extrabold text-xs uppercase tracking-wider shadow-md">
                   MOST POPULAR
                 </div>
               )}
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold font-heading text-white">{plan.name}</h3>
-                  <p className="text-xs text-slate-400 font-subheading mt-2 leading-relaxed">{plan.description}</p>
+                  <h3 className="text-2xl font-bold font-heading text-[#1F1610]">{plan.name}</h3>
+                  <p className="text-xs text-[#6B594C] font-subheading mt-2 leading-relaxed">{plan.description}</p>
                 </div>
 
                 <div className="flex items-baseline gap-2">
                   <span className={`text-4xl sm:text-5xl font-extrabold font-mono tracking-tight ${
-                    plan.highlighted ? "text-[#F59E0B]" : "text-gradient-cyan-purple"
+                    plan.highlighted ? "text-[#B45309]" : "text-gradient-sun"
                   }`}>
                     {currency === "INR" ? plan.priceINR : plan.priceAUD}
                   </span>
-                  <span className="text-xs font-mono text-slate-400">{plan.period}</span>
+                  <span className="text-xs font-mono text-[#7D6B5D]">{plan.period}</span>
                 </div>
 
                 {/* Features List */}
-                <div className="space-y-3 pt-4 border-t border-white/10">
-                  <p className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">WHAT&apos;S INCLUDED:</p>
+                <div className="space-y-3 pt-4 border-t border-[#E8DFD3]">
+                  <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#8C4E1D]">WHAT&apos;S INCLUDED:</p>
                   {plan.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-300 font-subheading">
+                    <div key={fIdx} className="flex items-start gap-2.5 text-xs text-[#5C4B3E] font-subheading">
                       <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                        plan.highlighted ? "bg-[#F59E0B]/20 text-[#F59E0B]" : "bg-cyan-500/20 text-cyan-400"
+                        plan.highlighted ? "bg-[#F4ECE1] text-[#B45309]" : "bg-[#F4ECE1] text-[#8C4E1D]"
                       }`}>
                         <Check className="w-3 h-3" />
                       </div>
@@ -183,13 +183,13 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <div className="pt-8 mt-8 border-t border-white/10">
+              <div className="pt-8 mt-8 border-t border-[#E8DFD3]">
                 <Link
                   href="#contact"
                   className={`w-full inline-flex items-center justify-center gap-2 py-4 rounded-full font-heading font-bold text-sm transition-all duration-300 ${
                     plan.highlighted
-                      ? "bg-gradient-to-r from-[#F59E0B] via-amber-400 to-orange-500 text-slate-900 shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:shadow-[0_0_40px_rgba(245,158,11,0.7)]"
-                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-cyan-400/50"
+                      ? "bg-gradient-to-r from-[#B45309] via-[#C97A32] to-[#8C4A1D] text-white shadow-md hover:shadow-lg"
+                      : "bg-[#F4ECE1] border border-[#DFCEBD] text-[#1F1610] hover:bg-white hover:border-[#B46A28]"
                   }`}
                 >
                   <span>{plan.cta}</span>
@@ -201,22 +201,22 @@ export default function PricingSection() {
         </div>
 
         {/* Lumora Technologies — AUD Pricing Table Breakdown (PDF Page 3) */}
-        <div className="rounded-3xl glass-panel border border-cyan-500/30 p-8 sm:p-10 relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+        <div className="rounded-3xl bg-white border border-[#E8DFD3] shadow-[0_10px_35px_rgba(60,40,20,0.04)] p-8 sm:p-10 relative overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#E8DFD3]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <div className="w-10 h-10 rounded-xl bg-[#F4ECE1] border border-[#DFCEBD] flex items-center justify-center text-[#B46A28]">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading text-white">
+                <h3 className="text-xl font-bold font-heading text-[#1F1610]">
                   Lumora Technologies — AUD Pricing
                 </h3>
-                <p className="text-xs text-slate-400 font-mono">
+                <p className="text-xs text-[#6B594C] font-mono">
                   Dedicated Australian Dollar (AUD) rates for international clients
                 </p>
               </div>
             </div>
-            <span className="text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+            <span className="text-xs font-mono font-bold text-emerald-800 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
               🇦🇺 AUD Official Table
             </span>
           </div>
@@ -224,44 +224,44 @@ export default function PricingSection() {
           <div className="overflow-x-auto">
             <table className="w-full text-left font-subheading border-collapse">
               <thead>
-                <tr className="border-b border-slate-700/80 text-xs font-mono text-cyan-400 uppercase tracking-wider">
+                <tr className="border-b border-[#E8DFD3] text-xs font-mono text-[#8C4E1D] uppercase tracking-wider">
                   <th className="py-4 px-6">Plan</th>
                   <th className="py-4 px-6">Scope / Tier</th>
                   <th className="py-4 px-6 text-right">Pricing (AUD)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-sm text-slate-200">
-                <tr className="hover:bg-white/5 transition-colors">
+              <tbody className="divide-y divide-[#E8DFD3]/80 text-sm text-[#1F1610]">
+                <tr className="hover:bg-[#FAF8F5] transition-colors">
                   <td className="py-4 px-6 font-bold flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-sm bg-blue-500 inline-block" />
+                    <span className="w-3 h-3 rounded-sm bg-[#B46A28] inline-block" />
                     Starter
                   </td>
-                  <td className="py-4 px-6 text-xs text-slate-400">Up to 5 Pages • Responsive Website • Basic SEO</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-cyan-300">A$250+</td>
+                  <td className="py-4 px-6 text-xs text-[#6B594C]">Up to 5 Pages • Responsive Website • Basic SEO</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-[#8C4E1D]">A$250+</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors bg-amber-500/5">
-                  <td className="py-4 px-6 font-bold flex items-center gap-2 text-[#F59E0B]">
-                    <span className="w-3 h-3 rounded-sm bg-[#F59E0B] inline-block" />
+                <tr className="hover:bg-[#FAF8F5] transition-colors bg-[#FAF6F0]">
+                  <td className="py-4 px-6 font-bold flex items-center gap-2 text-[#B45309]">
+                    <span className="w-3 h-3 rounded-sm bg-[#B45309] inline-block" />
                     Business Pro (MOST POPULAR)
                   </td>
-                  <td className="py-4 px-6 text-xs text-slate-300">Up to 10 Pages • Custom Design • CMS • DB • Support</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-[#F59E0B]">A$750+</td>
+                  <td className="py-4 px-6 text-xs text-[#6B594C]">Up to 10 Pages • Custom Design • CMS • DB • Support</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-[#B45309]">A$750+</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors">
+                <tr className="hover:bg-[#FAF8F5] transition-colors">
                   <td className="py-4 px-6 font-bold flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-sm bg-purple-500 inline-block" />
+                    <span className="w-3 h-3 rounded-sm bg-[#8C4A1D] inline-block" />
                     Custom Solutions
                   </td>
-                  <td className="py-4 px-6 text-xs text-slate-400">Custom Software • Backend • APIs • Cloud • Support</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-purple-300">A$2,000</td>
+                  <td className="py-4 px-6 text-xs text-[#6B594C]">Custom Software • Backend • APIs • Cloud • Support</td>
+                  <td className="py-4 px-6 text-right font-mono font-bold text-[#8C4A1D]">A$2,000</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 }

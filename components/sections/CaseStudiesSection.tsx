@@ -52,25 +52,25 @@ const METRICS = [
 
 export default function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="relative my-8 sm:my-12 lg:my-16 px-4 sm:px-6 lg:px-8 z-20">
-      <div className="max-w-7xl mx-auto bg-[#050816] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-20 px-6 sm:px-12 border border-cyan-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden relative">
+    <section id="case-studies" className="relative my-3 sm:my-4 px-4 sm:px-6 lg:px-8 z-20">
+      <div className="max-w-7xl mx-auto bg-[#F4EFEA] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-10 sm:py-12 lg:py-14 px-6 sm:px-12 border border-[#E8DFD3] shadow-[0_20px_60px_rgba(60,40,20,0.06)] overflow-hidden relative">
         {/* Background Ambient Glow */}
-        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[300px] bg-gradient-to-r from-purple-500/10 to-cyan-500/10 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[300px] bg-gradient-to-r from-[#E8D4BE]/25 to-[#DFC7AF]/20 blur-[140px] pointer-events-none" />
 
         <div className="relative z-10">
         
         {/* Section Header (PDF Page 1 Specification) */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-semibold uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4ECE1] border border-[#DFCEBD] text-[#8C4E1D] text-xs font-mono font-semibold uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-[#B46A28]" />
             PROVEN IMPACT
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-            PROVEN <span className="text-gradient-cyan-purple">WORK</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#1F1610] tracking-tight">
+            PROVEN <span className="text-gradient-sun">WORK</span>
           </h2>
 
-          <p className="text-xl sm:text-2xl text-cyan-300 font-semibold font-heading">
+          <p className="text-xl sm:text-2xl text-[#8C4E1D] font-semibold font-heading">
             Projects Built for Real Businesses
           </p>
         </div>
@@ -86,22 +86,22 @@ export default function CaseStudiesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`rounded-3xl glass-card p-6 border ${feat.border} flex flex-col justify-between space-y-4 hover:border-cyan-400/50 transition-colors`}
+                className="rounded-3xl bg-white p-6 border border-[#E8DFD3] shadow-[0_8px_25px_rgba(60,40,20,0.04)] flex flex-col justify-between space-y-4 hover:border-[#B46A28]/40 transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Icon className={`w-5 h-5 ${feat.color}`} />
+                  <div className="w-10 h-10 rounded-xl bg-[#F4ECE1] border border-[#DFCEBD] flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#B46A28]" />
                   </div>
-                  <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded border ${feat.badgeBg}`}>
+                  <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-[#F4ECE1] text-[#8C4E1D] border border-[#DFCEBD]">
                     ✦ {feat.tag}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold font-heading text-white">
+                  <h3 className="text-lg font-bold font-heading text-[#1F1610]">
                     {feat.title}
                   </h3>
-                  <p className="text-xs text-slate-300 font-subheading mt-1 leading-relaxed">
+                  <p className="text-xs text-[#6B594C] font-subheading mt-1 leading-relaxed">
                     {feat.description}
                   </p>
                 </div>
@@ -121,25 +121,25 @@ export default function CaseStudiesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`rounded-3xl glass-card p-6 border ${metric.border} flex flex-col justify-between space-y-4`}
+                className="rounded-3xl bg-white p-6 border border-[#E8DFD3] shadow-[0_8px_25px_rgba(60,40,20,0.04)] flex flex-col justify-between space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Icon className={`w-5 h-5 ${metric.color}`} />
+                  <div className="w-10 h-10 rounded-xl bg-[#F4ECE1] border border-[#DFCEBD] flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#8C4A1D]" />
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+                  <span className="text-[10px] font-mono text-emerald-800 font-bold px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
                     VERIFIED
                   </span>
                 </div>
 
                 <div>
-                  <div className={`text-4xl font-extrabold font-mono ${metric.color} tracking-tight`}>
+                  <div className="text-4xl font-extrabold font-mono text-gradient-sun tracking-tight">
                     {metric.value}
                   </div>
-                  <div className="text-base font-bold font-heading text-white mt-1">
+                  <div className="text-base font-bold font-heading text-[#1F1610] mt-1">
                     {metric.label}
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-[#7D6B5D] mt-1">
                     {metric.subtext}
                   </p>
                 </div>
@@ -149,40 +149,40 @@ export default function CaseStudiesSection() {
         </div>
 
         {/* Full-width Case Study Blueprint Breakdown Container */}
-        <div className="rounded-3xl glass-panel border border-cyan-500/30 p-8 lg:p-12 relative overflow-hidden">
+        <div className="rounded-3xl bg-white border border-[#E8DFD3] shadow-[0_10px_35px_rgba(60,40,20,0.05)] p-8 lg:p-12 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#8C4E1D]">
                 FEATURED CASE STUDY // FINTECH PLATFORM
               </span>
 
-              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1F1610]">
                 How We Re-engineered FinTech SaaS to Handle 5M+ Daily Transactions
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-300 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-[#6B594C] pt-2">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#B46A28] shrink-0 mt-0.5" />
                   <span><strong>Problem:</strong> Slow legacy codebase causing 4.2s page load latencies and high drop-offs.</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#8C4A1D] shrink-0 mt-0.5" />
                   <span><strong>Solution:</strong> Migrated to Next.js App Router, edge API functions, and serverless vector caching.</span>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-[#050816] rounded-2xl border border-cyan-500/30 p-6 font-mono text-xs text-slate-300 space-y-3">
-              <div className="flex items-center justify-between border-b border-white/10 pb-2 text-cyan-400 font-bold">
+            <div className="lg:col-span-5 bg-[#241A14] text-[#FAF8F5] rounded-2xl border border-[#3E2C20] p-6 font-mono text-xs space-y-3 shadow-lg">
+              <div className="flex items-center justify-between border-b border-[#3E2C20] pb-2 text-[#C97A32] font-bold">
                 <span>// PERFORMANCE BENCHMARK</span>
                 <span className="text-emerald-400">PASSED 100%</span>
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 text-slate-300">
                 <div className="flex justify-between"><span>First Contentful Paint:</span> <span className="text-emerald-400 font-bold">0.18s</span></div>
                 <div className="flex justify-between"><span>Time to Interactive:</span> <span className="text-emerald-400 font-bold">0.42s</span></div>
                 <div className="flex justify-between"><span>Cumulative Layout Shift:</span> <span className="text-emerald-400 font-bold">0.000</span></div>
-                <div className="flex justify-between"><span>Lighthouse Security:</span> <span className="text-cyan-400 font-bold">100/100</span></div>
+                <div className="flex justify-between"><span>Lighthouse Security:</span> <span className="text-[#C97A32] font-bold">100/100</span></div>
               </div>
             </div>
 

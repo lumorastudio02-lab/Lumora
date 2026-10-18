@@ -17,11 +17,11 @@ export default function LumoraLogo({
 }: LumoraLogoProps) {
   const sunSize = size === "sm" ? 18 : size === "lg" ? 32 : 24;
 
-  // Determine light or dark text theme (Footer is light bg #F6F6F3)
-  const isLight = theme === "light" || (theme === undefined && variant === "footer");
-  const textColor = isLight ? "text-[#1F2937]" : "text-white";
-  const subtextColor = isLight ? "text-[#475569] font-bold" : "text-slate-400 font-semibold";
-  const descColor = isLight ? "text-[#64748B] font-medium" : "text-slate-500";
+  // Determine light or dark text theme (Milky palette defaults to deep espresso #1F1610)
+  const isLight = theme !== "dark";
+  const textColor = isLight ? "text-[#1F1610]" : "text-white";
+  const subtextColor = isLight ? "text-[#6B594C] font-bold" : "text-slate-400 font-semibold";
+  const descColor = isLight ? "text-[#8C7A6D] font-medium" : "text-slate-500";
 
   const SunIcon = () => (
     <svg

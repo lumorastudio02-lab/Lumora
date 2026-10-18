@@ -22,50 +22,50 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-[#060816] text-white min-h-screen selection:bg-[#FDBA22]/30 selection:text-white">
+    <div className="bg-[#FAF8F5] text-[#1F1610] min-h-screen selection:bg-[#B46A28]/20 selection:text-[#1F1610]">
       {/* Navigation */}
       <Navbar />
 
-      {/* Main v2.0 Alternating Hybrid Theme Sections */}
+      {/* Main Milky & Warm Brown Luxury Theme Sections */}
       <main>
-        {/* Section 1: Hero (Dark) */}
+        {/* Section 1: Hero (Milky Alabaster & Warm Amber Ambient Mesh) */}
         <HeroSection />
 
-        {/* Section 2: Trusted Companies (Warm White Floating Container) */}
+        {/* Section 2: Trusted Companies (Warm Latte Floating Marquee) */}
         <TrustedCompaniesSection />
 
-        {/* Section 3: Services (Dark Glass Cards with Blueprint Morphs) */}
+        {/* Section 3: Services (Milky Surfaces with Bronze/Caramel Badges) */}
         <ServicesSection />
 
-        {/* Section 4: Why Lumora (Warm White Floating Container) */}
+        {/* Section 4: Why Lumora (Warm Latte Elevated Bento Grid) */}
         <WhyLumoraSection />
 
-        {/* Section 5: Process (Dark Interactive 5-Stage Screen Recording Simulator) */}
+        {/* Section 5: Process (Interactive 5-Stage Screen Simulator) */}
         <ProcessSection />
 
-        {/* Section 6: Portfolio Showcase (Warm White Container with Before/After Slider) */}
+        {/* Section 6: Portfolio Showcase (Warm White Container with Draggable Before/After Slider) */}
         <FeaturedProjectsSection />
 
-        {/* Section 7: Technology Stack Orbit (Dark) */}
+        {/* Section 7: Technology Stack Grid (Warm Milky Cards with Espresso Badges) */}
         <TechStackSection />
 
-        {/* Section 8: Case Studies & Metrics (Dark) */}
+        {/* Section 8: Case Studies & Benchmark Terminal (Elevated Warm Latte Container) */}
         <CaseStudiesSection />
 
-        {/* Section 9: Testimonials (Warm White Container) */}
+        {/* Section 9: Testimonials (Milky Canvas with Warm Caramel Quote Badges) */}
         <TestimonialsSection />
 
-        {/* Section 10: Pricing & CTA (Dark with Lumora Sun Glow) */}
+        {/* Section 10: Recommended Pricing & AUD Rates (Dual Currency Switcher & Table) */}
         <PricingSection />
 
-        {/* Section 11: FAQ (Dark Accordion) */}
+        {/* Section 11: FAQ Accordions (Warm Latte Container with Caramel Chevrons) */}
         <FaqSection />
 
-        {/* Section 12: Contact Scope Form (Warm White Container) */}
+        {/* Section 12: Contact Scope Form (Full-Stack Inquiry & Blueprint Dispatch) */}
         <ContactSection />
       </main>
 
-      {/* Section 13 & 14: Master Footer (Warm White Curved Container) */}
+      {/* Section 13 & 14: Master Footer (Warm Latte Curved Container & Live Clock) */}
       <Footer />
     </div>
   )

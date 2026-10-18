@@ -42,38 +42,38 @@ export default function TechStackSection() {
     : TECH_ITEMS.filter((t) => t.category === activeCategory);
 
   return (
-    <section id="tech-stack" className="relative w-full bg-[#060816] rounded-[60px] sm:rounded-[80px] lg:rounded-[100px] py-20 lg:py-28 my-6 sm:my-10 border-t border-b border-cyan-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-20 overflow-hidden">
+    <section id="tech-stack" className="relative w-full bg-[#FAF8F5] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-10 sm:py-12 lg:py-14 my-3 sm:my-4 border-t border-b border-[#E8DFD3] shadow-[0_20px_60px_rgba(60,40,20,0.06)] z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
-        {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-gradient-to-tr from-cyan-500/10 via-[#FDBA22]/10 to-purple-500/10 rounded-full blur-[140px] sm:blur-[160px] pointer-events-none" />
+        {/* Background Warm Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-gradient-to-tr from-[#E8D4BE]/25 via-[#F3E5D4]/30 to-[#DFC7AF]/25 rounded-full blur-[140px] sm:blur-[160px] pointer-events-none" />
 
         <div className="relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono font-semibold uppercase">
-            <Cpu className="w-3.5 h-3.5 text-[#FDBA22]" />
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#F4ECE1] border border-[#DFCEBD] text-[#8C4E1D] text-xs font-mono font-semibold uppercase">
+            <Cpu className="w-3.5 h-3.5 text-[#B46A28]" />
             POWERING FUTURE-READY APPS
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#1F1610] tracking-tight">
             Our <span className="text-gradient-sun">Technology Orbit</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-300 font-subheading font-normal">
+          <p className="text-base sm:text-lg text-[#6B594C] font-subheading font-normal">
             We build with industry-leading frontend frameworks, enterprise cloud infrastructure, and state-of-the-art AI models.
           </p>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-4 sm:pt-6">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2 sm:pt-3">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-heading font-semibold transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-gradient-to-r from-[#FDBA22] via-[#FB923C] to-[#EF4444] text-slate-900 shadow-[0_0_20px_rgba(253,186,34,0.4)]"
-                    : "glass-panel text-slate-300 hover:text-white hover:border-cyan-500/40"
+                    ? "bg-gradient-to-r from-[#B45309] via-[#C97A32] to-[#8C4A1D] text-white shadow-md scale-105"
+                    : "bg-white/80 border border-[#E8DFD3] text-[#5C4B3E] hover:text-[#B46A28] hover:border-[#DFCEBD]"
                 }`}
               >
                 {cat}
@@ -83,9 +83,9 @@ export default function TechStackSection() {
         </div>
 
         {/* Center Logo Showcase Badge */}
-        <div className="flex justify-center mb-8 sm:mb-12">
-          <div className="p-3 sm:p-4 px-6 sm:px-8 rounded-2xl sm:rounded-3xl glass-card-dark border border-[#FDBA22]/30 shadow-[0_0_40px_rgba(253,186,34,0.2)] flex items-center justify-center">
-            <LumoraLogo variant="full" size="md" />
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="p-3 sm:p-4 px-6 sm:px-8 rounded-2xl sm:rounded-3xl bg-white border border-[#E8DFD3] shadow-[0_10px_30px_rgba(60,40,20,0.04)] flex items-center justify-center">
+            <LumoraLogo variant="full" size="md" theme="light" />
           </div>
         </div>
 
@@ -98,19 +98,17 @@ export default function TechStackSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.04 }}
-              className="group relative rounded-xl sm:rounded-2xl glass-card-dark p-3.5 sm:p-4 border border-cyan-500/20 hover:border-[#FDBA22]/50 hover:shadow-[0_0_30px_rgba(253,186,34,0.25)] transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              className="group relative rounded-xl sm:rounded-2xl bg-white p-3.5 sm:p-4 border border-[#E8DFD3] hover:border-[#B46A28]/50 shadow-[0_4px_15px_rgba(60,40,20,0.03)] hover:shadow-[0_10px_30px_rgba(180,106,40,0.12)] transition-all duration-300 flex items-center gap-3 cursor-pointer"
             >
-              <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${tech.color} p-[1px] shadow-md group-hover:scale-110 transition-transform shrink-0`}>
-                <div className="w-full h-full bg-[#060816] rounded-[10px] flex items-center justify-center text-lg sm:text-xl font-bold">
-                  {tech.iconText}
-                </div>
+              <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#F4ECE1] border border-[#DFCEBD] group-hover:scale-110 transition-transform shrink-0 flex items-center justify-center shadow-sm`}>
+                <span className="text-lg sm:text-xl">{tech.iconText}</span>
               </div>
 
               <div className="min-w-0 flex-1">
-                <h3 className="text-xs sm:text-sm font-bold font-heading text-white group-hover:text-[#FDBA22] transition-colors truncate">
+                <h3 className="text-xs sm:text-sm font-bold font-heading text-[#1F1610] group-hover:text-[#B46A28] transition-colors truncate">
                   {tech.name}
                 </h3>
-                <p className="text-[10px] sm:text-xs text-slate-400 font-subheading truncate">
+                <p className="text-[10px] sm:text-xs text-[#7D6B5D] font-subheading truncate">
                   {tech.description}
                 </p>
               </div>

@@ -217,7 +217,7 @@ export function CinematicFooter() {
     { icon: <Users className="w-5 h-5" />, href: "https://instagram.com", label: "Instagram" },
     { icon: <Share className="w-5 h-5" />, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: <Code2 className="w-5 h-5" />, href: "https://github.com", label: "GitHub" },
-    { icon: <Mail className="w-5 h-5" />, href: "mailto:lumora.web.technology@gmail.com", label: "Email" },
+    { icon: <Mail className="w-5 h-5" />, href: "mailto:lumora.web.technologies@gmail.com", label: "Email" },
   ];
 
   useEffect(() => {
