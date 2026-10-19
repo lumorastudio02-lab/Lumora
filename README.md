@@ -65,7 +65,7 @@ The UI has been transitioned from high-contrast dark themes to a **bespoke, warm
 | **Soft Latte Shading** | `#EFE8DD` | `bg-latte` | Hover states, pill buttons, secondary badges |
 | **Roasted Espresso** | `#1F1610` | `text-[#1F1610]` / `text-espresso` | Primary titles, headlines, high-contrast labels |
 | **Warm Mocha** | `#6B594C` | `text-[#6B594C]` / `text-mocha` | Subheadings, descriptive body text, metadata |
-| **Warm Cinnamon** | `#8C4E1D` | `text-[#8C4E1D]` / `text-cinnamon` | Pill badge text, AUD table pricing highlights |
+| **Warm Cinnamon** | `#8C4E1D` | `text-[#8C4E1D]` / `text-cinnamon` | Pill badge text, section subtitles, key highlights |
 | **Warm Caramel** | `#B46A28` | `text-[#B46A28]` / `text-caramel` | Primary CTA buttons, icon fills, hover borders |
 | **Sunburst Bronze** | `#B45309` | `from-[#B45309]` | Primary gradient start tone |
 | **Golden Amber** | `#C97A32` | `to-[#C97A32]` | Primary gradient stop tone |
@@ -121,7 +121,7 @@ lumora-main/
 │   │   ├── TechStackSection.tsx  # Categorized technology stack radar
 │   │   ├── CaseStudiesSection.tsx# Verified ROI metrics & live latency benchmark
 │   │   ├── TestimonialsSection.tsx # Client reviews & trust signals
-│   │   ├── PricingSection.tsx    # Dual currency switcher (INR/AUD) & price table
+│   │   ├── PricingSection.tsx    # Transparent tiered website & custom software pricing
 │   │   ├── FaqSection.tsx        # Animated interactive FAQ accordion
 │   │   ├── ContactSection.tsx    # Interactive project brief proposal form
 │   │   └── CtaSection.tsx        # Secondary bottom call to action banner
@@ -224,13 +224,12 @@ Each section on the landing page is engineered as an independent, modular compon
 - **Visual Design:** Elevated white cards with `#E8DFD3` contours and warm caramel quotation badges.
 - **Trust Elements:** Full client names, company titles, 5-star rating vectors, and verified client badges.
 
-### 11. Recommended Pricing & Dual Currency Engine (`PricingSection.tsx`)
-- **Dual Currency Switcher:** Instant, zero-reload state toggle between **INR (₹)** and **AUD (A$)**.
+### 11. Recommended Pricing Tiers (`PricingSection.tsx`)
+- **Visual Design:** Elevated luxury card containers with `#E8DFD3` borders, glowing amber radial backgrounds, and popular tier accent borders (`#B46A28`).
 - **Pricing Tiers:**
-  1. **Starter (₹20,000 / A$250+):** Up to 5 pages, responsive UI, basic SEO, contact form.
-  2. **Business Pro (₹45,000 / A$750+) [MOST POPULAR]:** Up to 10 pages, custom UI/UX, CMS integration, database backend, priority 24/7 SLA.
-  3. **Custom Solutions (₹90,000+ / A$2,000+):** Custom software, AI workflows, enterprise cloud architecture.
-- **Official AUD Pricing Breakdown Table:** Dedicated corporate rate schedule for international Australian clients.
+  1. **Starter (₹9,999):** Up to 5 pages, custom responsive UI, modern UI/UX design, basic SEO, WhatsApp/contact integration.
+  2. **Business Pro (₹24,999) [MOST POPULAR]:** Up to 10 pages, custom design & dev, CMS/admin panel, database integration, SEO & performance optimization, deployment & support.
+  3. **Custom Solutions (₹49,999+):** Custom software, database & backend development, admin dashboard, user auth, API integrations, cloud deployment, ongoing support.
 
 ### 12. Animated FAQ Accordion (`FaqSection.tsx`)
 - **Visual Design:** Warm latte container (`#F4EFEA`) with animated Framer Motion expanding items.

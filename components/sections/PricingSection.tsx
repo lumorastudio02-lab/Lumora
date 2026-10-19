@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, ArrowRight, Globe } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface PlanItem {
   name: string;
-  priceINR: string;
-  priceAUD: string;
+  price: string;
   period: string;
   description: string;
   features: string[];
@@ -19,8 +18,7 @@ interface PlanItem {
 const PLANS: PlanItem[] = [
   {
     name: "Starter",
-    priceINR: "₹9,999",
-    priceAUD: "A$250+",
+    price: "₹9,999",
     period: "starting price",
     description: "Ideal for small businesses and startups that need a professional online presence.",
     features: [
@@ -37,8 +35,7 @@ const PLANS: PlanItem[] = [
   },
   {
     name: "Business Pro",
-    priceINR: "₹24,999",
-    priceAUD: "A$750+",
+    price: "₹24,999",
     period: "starting price",
     description: "Perfect for growing businesses that need a powerful website or custom digital solution.",
     features: [
@@ -57,8 +54,7 @@ const PLANS: PlanItem[] = [
   },
   {
     name: "Custom Solutions",
-    priceINR: "₹49,999+",
-    priceAUD: "A$2,000",
+    price: "₹49,999+",
     period: "custom scope",
     description: "For businesses that need custom software, web applications, billing systems, or mobile apps.",
     features: [
@@ -77,8 +73,6 @@ const PLANS: PlanItem[] = [
 ];
 
 export default function PricingSection() {
-  const [currency, setCurrency] = useState<"INR" | "AUD">("INR");
-
   return (
     <section id="pricing" className="relative my-3 sm:my-4 px-4 sm:px-6 lg:px-8 z-20">
       <div className="max-w-7xl mx-auto bg-[#FAF8F5] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] py-10 sm:py-12 lg:py-14 px-6 sm:px-12 border border-[#E8DFD3] shadow-[0_20px_60px_rgba(60,40,20,0.06)] overflow-hidden relative">
@@ -101,38 +95,10 @@ export default function PricingSection() {
           <p className="text-base sm:text-lg text-[#6B594C] font-subheading font-normal">
             Transparent, fixed-tier packages tailored for businesses of all scales.
           </p>
-
-          {/* Interactive Currency Switcher */}
-          <div className="pt-2 flex justify-center">
-            <div className="inline-flex items-center p-1.5 rounded-full bg-[#F4EFEA] border border-[#E8DFD3] shadow-inner gap-1">
-              <button
-                type="button"
-                onClick={() => setCurrency("INR")}
-                className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
-                  currency === "INR"
-                    ? "bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white shadow-md scale-105"
-                    : "text-[#6B594C] hover:text-[#1F1610]"
-                }`}
-              >
-                <span>🇮🇳 INR (₹)</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setCurrency("AUD")}
-                className={`px-5 py-2 rounded-full font-mono text-xs font-bold transition-all duration-300 flex items-center gap-1.5 ${
-                  currency === "AUD"
-                    ? "bg-gradient-to-r from-[#B45309] to-[#C97A32] text-white shadow-md scale-105"
-                    : "text-[#6B594C] hover:text-[#1F1610]"
-                }`}
-              >
-                <span>🇦🇺 AUD (A$)</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -162,7 +128,7 @@ export default function PricingSection() {
                   <span className={`text-4xl sm:text-5xl font-extrabold font-mono tracking-tight ${
                     plan.highlighted ? "text-[#B45309]" : "text-gradient-sun"
                   }`}>
-                    {currency === "INR" ? plan.priceINR : plan.priceAUD}
+                    {plan.price}
                   </span>
                   <span className="text-xs font-mono text-[#7D6B5D]">{plan.period}</span>
                 </div>
@@ -198,66 +164,6 @@ export default function PricingSection() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Lumora Technologies — AUD Pricing Table Breakdown (PDF Page 3) */}
-        <div className="rounded-3xl bg-white border border-[#E8DFD3] shadow-[0_10px_35px_rgba(60,40,20,0.04)] p-8 sm:p-10 relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#E8DFD3]">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F4ECE1] border border-[#DFCEBD] flex items-center justify-center text-[#B46A28]">
-                <Globe className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold font-heading text-[#1F1610]">
-                  Lumora Technologies — AUD Pricing
-                </h3>
-                <p className="text-xs text-[#6B594C] font-mono">
-                  Dedicated Australian Dollar (AUD) rates for international clients
-                </p>
-              </div>
-            </div>
-            <span className="text-xs font-mono font-bold text-emerald-800 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
-              🇦🇺 AUD Official Table
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left font-subheading border-collapse">
-              <thead>
-                <tr className="border-b border-[#E8DFD3] text-xs font-mono text-[#8C4E1D] uppercase tracking-wider">
-                  <th className="py-4 px-6">Plan</th>
-                  <th className="py-4 px-6">Scope / Tier</th>
-                  <th className="py-4 px-6 text-right">Pricing (AUD)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E8DFD3]/80 text-sm text-[#1F1610]">
-                <tr className="hover:bg-[#FAF8F5] transition-colors">
-                  <td className="py-4 px-6 font-bold flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-sm bg-[#B46A28] inline-block" />
-                    Starter
-                  </td>
-                  <td className="py-4 px-6 text-xs text-[#6B594C]">Up to 5 Pages • Responsive Website • Basic SEO</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-[#8C4E1D]">A$250+</td>
-                </tr>
-                <tr className="hover:bg-[#FAF8F5] transition-colors bg-[#FAF6F0]">
-                  <td className="py-4 px-6 font-bold flex items-center gap-2 text-[#B45309]">
-                    <span className="w-3 h-3 rounded-sm bg-[#B45309] inline-block" />
-                    Business Pro (MOST POPULAR)
-                  </td>
-                  <td className="py-4 px-6 text-xs text-[#6B594C]">Up to 10 Pages • Custom Design • CMS • DB • Support</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-[#B45309]">A$750+</td>
-                </tr>
-                <tr className="hover:bg-[#FAF8F5] transition-colors">
-                  <td className="py-4 px-6 font-bold flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-sm bg-[#8C4A1D] inline-block" />
-                    Custom Solutions
-                  </td>
-                  <td className="py-4 px-6 text-xs text-[#6B594C]">Custom Software • Backend • APIs • Cloud • Support</td>
-                  <td className="py-4 px-6 text-right font-mono font-bold text-[#8C4A1D]">A$2,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
 
         </div>

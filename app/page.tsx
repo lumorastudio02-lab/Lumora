@@ -55,7 +55,7 @@ export default function HomePage() {
         {/* Section 9: Testimonials (Milky Canvas with Warm Caramel Quote Badges) */}
         <TestimonialsSection />
 
-        {/* Section 10: Recommended Pricing & AUD Rates (Dual Currency Switcher & Table) */}
+        {/* Section 10: Recommended Pricing */}
         <PricingSection />
 
         {/* Section 11: FAQ Accordions (Warm Latte Container with Caramel Chevrons) */}
